@@ -3,13 +3,13 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
-import AppBar from '@/layout/components/AppBar'
+import Layout from '@/layout'
 
 // 公共路由
 export const constantRoutes = [
   {
     path: '/redirect',
-    component: AppBar,
+    component: Layout,
     hidden: true,
     children: [
       {
@@ -20,6 +20,7 @@ export const constantRoutes = [
   },
   {
     path: '',
+    component: Layout,
     redirect: 'index',
     children: [
       {
