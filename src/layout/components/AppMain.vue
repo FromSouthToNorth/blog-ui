@@ -6,13 +6,13 @@
     <v-row justify="center">
       <v-col
         cols="12"
-        md="10"
+        md="9"
       >
         <router-view :key="key"/>
       </v-col>
       <v-col
-        cols="4"
-        md="2"
+        cols="12"
+        md="3"
       >
         <RightDrawer />
       </v-col>
