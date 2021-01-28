@@ -1,10 +1,6 @@
 <template>
   <v-navigation-drawer
-  app
-  absolute
-  permanent
   right>
-
   </v-navigation-drawer>
 </template>
 

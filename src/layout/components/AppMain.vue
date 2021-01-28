@@ -1,16 +1,33 @@
 <template>
-  <v-main>
-    <router-view :key="key"/>
+  <v-main
+    fluid
+    tag="section"
+  >
+    <v-row justify="center">
+      <v-col
+        cols="12"
+        md="10"
+      >
+        <router-view :key="key"/>
+      </v-col>
+      <v-col
+        cols="4"
+        md="2"
+      >
+        <RightDrawer />
+      </v-col>
+    </v-row>
     <Footer/>
   </v-main>
 </template>
 
 <script>
 import Footer from './Footer'
+import RightDrawer from './RightDrawer'
 
 export default {
   name: 'AppMain',
-  components: { Footer },
+  components: { Footer, RightDrawer },
   computed: {
     cachedViews() {
       return this.$store.state.tagsView.cachedViews
@@ -23,11 +40,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.app-main {
-  /* 50= navbar  50  */
-  min-height: calc(100vh - 50px);
-  width: 100%;
-  position: relative;
-  overflow: hidden;
-}
 </style>
