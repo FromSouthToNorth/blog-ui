@@ -1,24 +1,5 @@
 <template>
-  <v-main
-    fluid
-    tag="section"
-  >
-    <v-row justify="center">
-      <v-col
-        cols="12"
-        md="9"
-      >
-        <router-view :key="key"/>
-      </v-col>
-      <v-col
-        cols="12"
-        md="3"
-      >
-        <RightDrawer />
-      </v-col>
-    </v-row>
-    <Footer/>
-  </v-main>
+  <router-view :key="key"/>
 </template>
 
 <script>
