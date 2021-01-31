@@ -2,7 +2,6 @@
   <v-footer
     app
   >
-
   </v-footer>
 </template>
 
@@ -11,7 +10,3 @@ export default {
   name: 'Footer'
 }
 </script>
-
-<style scoped>
-
-</style>

@@ -1,14 +1,23 @@
 <template>
-  <router-view :key="key"/>
+  <v-container class="d-flex pa-0 pa-md-26 align-center">
+    <v-row>
+      <v-col cols="12" md="2">
+      </v-col>
+      <v-col cols="12" md="8">
+        <router-view :key="key"/>
+      </v-col>
+      <v-col cols="12" md="2">
+      </v-col>
+    </v-row>
+    <Footer />
+  </v-container>
 </template>
 
 <script>
-import Footer from './Footer'
-import RightDrawer from './RightDrawer'
+import TagCloud from '@/components/Echarts/TagCloud'
 
 export default {
-  name: 'AppMain',
-  components: { Footer, RightDrawer },
+  components: { TagCloud },
   computed: {
     cachedViews() {
       return this.$store.state.tagsView.cachedViews
@@ -19,6 +28,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-</style>

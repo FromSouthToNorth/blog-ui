@@ -1,5 +1,4 @@
 const getters = {
-  visitedViews: state => state.tagsView.visitedViews,
-  cachedViews: state => state.tagsView.cachedViews
+  drawer: state => state.settings.drawer
 }
 export default getters
