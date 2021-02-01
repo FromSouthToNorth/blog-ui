@@ -1,12 +1,14 @@
 <template>
   <v-container class="d-flex pa-0 pa-md-26 align-center">
     <v-row>
-      <v-col cols="12" md="2">
+      <v-col cols="12" md="2" class="left--navigation--show">
+        <left-toolbar />
       </v-col>
-      <v-col cols="12" md="8">
+      <v-col cols="12" md="8" sm="8">
         <router-view :key="key"/>
       </v-col>
-      <v-col cols="12" md="2">
+      <v-col cols="12" md="2" sm="4">
+        <right-toolbar />
       </v-col>
     </v-row>
     <Footer />
@@ -15,9 +17,11 @@
 
 <script>
 import TagCloud from '@/components/Echarts/TagCloud'
+import RightToolbar from '@/components/RightToolbar/RightToolbar'
+import LeftToolbar from '@/components/LeftToolbar/LeftToolbar'
 
 export default {
-  components: { TagCloud },
+  components: { LeftToolbar, RightToolbar, TagCloud },
   computed: {
     cachedViews() {
       return this.$store.state.tagsView.cachedViews
@@ -28,3 +32,11 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+@media (max-width: 960px) {
+  .left--navigation--show {
+    display: none;
+  }
+}
+</style>
