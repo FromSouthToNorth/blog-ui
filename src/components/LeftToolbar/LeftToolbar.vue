@@ -34,7 +34,7 @@
           </v-card-text>
         </div>
       </v-expand-transition>
-      <hr class="v-divider theme--light" />
+      <v-divider></v-divider>
       <v-list dense>
         <v-subheader>导航</v-subheader>
         <v-list-item-group

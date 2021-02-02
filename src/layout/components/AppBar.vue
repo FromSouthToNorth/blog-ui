@@ -4,7 +4,7 @@
 
     <v-container>
       <v-row align="center" class="mx-auto py-0">
-        <v-toolbar-title>Blog</v-toolbar-title>
+        <v-toolbar-title class="logo--show">Blog</v-toolbar-title>
 
         <v-btn icon @click="theme">
           <v-icon>{{ $vuetify.theme.dark ? 'mdi-white-balance-sunny' : 'mdi-weather-night' }}</v-icon>
@@ -28,7 +28,6 @@
           prepend-inner-icon="mdi-magnify"
           style="max-width: 300px;"
           :value="value"
-          class="text--field--show"
         ></v-text-field>
 
         <v-dialog
@@ -105,7 +104,7 @@ export default {
 
 <style lang="scss" scoped>
 @media (max-width: 600px) {
-  .text--field--show {
+  .logo--show {
     display: none;
   }
 }

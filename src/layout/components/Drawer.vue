@@ -4,15 +4,6 @@
     temporary
     app
   >
-    <v-text-field
-      flat
-      hide-details
-      solo
-      label="搜索 按回车"
-      prepend-inner-icon="mdi-magnify"
-      :value="value"
-      class="text--field--show"
-    ></v-text-field>
     <left-toolbar />
   </v-navigation-drawer>
 </template>
