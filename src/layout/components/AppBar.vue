@@ -1,74 +1,72 @@
 <template>
   <v-app-bar app>
-    <v-container class="d-flex pa-0 pa-md-26 align-center">
+    <v-app-bar-nav-icon class="menu-btn" @click="setDrawer"></v-app-bar-nav-icon>
 
-      <v-app-bar-nav-icon class="menu-btn" @click="setDrawer"></v-app-bar-nav-icon>
+    <v-container>
+      <v-row align="center" class="mx-auto py-0">
+        <v-toolbar-title>Blog</v-toolbar-title>
 
-      <v-toolbar-title>Blog</v-toolbar-title>
+        <v-btn icon @click="theme">
+          <v-icon>{{ $vuetify.theme.dark ? 'mdi-white-balance-sunny' : 'mdi-weather-night' }}</v-icon>
+        </v-btn>
 
-      <v-btn icon @click="theme">
-        <v-icon>{{ $vuetify.theme.dark ? 'mdi-white-balance-sunny' : 'mdi-weather-night' }}</v-icon>
-      </v-btn>
+        <v-progress-linear
+          :active="loading"
+          :indeterminate="loading"
+          absolute
+          bottom
+          color="green"
+        ></v-progress-linear>
 
-      <v-progress-linear
-        :active="loading"
-        :indeterminate="loading"
-        absolute
-        bottom
-        color="green"
-      ></v-progress-linear>
+        <v-spacer></v-spacer>
 
-      <v-spacer></v-spacer>
+        <v-text-field
+          flat
+          hide-details
+          solo
+          label="搜索 按回车"
+          prepend-inner-icon="mdi-magnify"
+          style="max-width: 300px;"
+          :value="value"
+          class="text--field--show"
+        ></v-text-field>
 
-      <v-row>
-        <v-col md="10" sm="8">
-          <v-text-field
-            solo
-            dense
-            label="搜索 按回车"
-            prepend-inner-icon="mdi-magnify"
-            :value="value"
-            style="max-width: 320px; margin-top: 30px"
-            class="text--field--show"
-          ></v-text-field>
-        </v-col>
+        <v-dialog
+          transition="dialog-top-transition"
+          max-width="600"
+        >
+          <template v-slot:activator="{ on, attrs }">
+            <v-btn
+              v-bind="attrs"
+              v-on="on"
+              color="pink"
+              icon>
+              <v-icon>mdi-heart</v-icon>
+            </v-btn>
+          </template>
+          <template v-slot:default="dialog">
+            <v-card>
+              <v-toolbar
+                color="primary"
+                dark
+              >闲言碎语</v-toolbar>
+              <v-card-text>
+                <div class="text-h2 pa-12">Hello world!</div>
+              </v-card-text>
+              <v-card-actions class="justify-end">
+                <v-btn
+                  text
+                  @click="dialog.value = false"
+                >Close</v-btn>
+              </v-card-actions>
+            </v-card>
+          </template>
+        </v-dialog>
+
+        <v-btn icon>
+          <v-icon>mdi-dots-vertical</v-icon>
+        </v-btn>
       </v-row>
-
-      <v-dialog
-        transition="dialog-top-transition"
-        max-width="600"
-      >
-        <template v-slot:activator="{ on, attrs }">
-          <v-btn
-            v-bind="attrs"
-            v-on="on"
-            color="pink"
-            icon>
-            <v-icon>mdi-heart</v-icon>
-          </v-btn>
-        </template>
-        <template v-slot:default="dialog">
-          <v-card>
-            <v-toolbar
-              color="primary"
-              dark
-            >闲言碎语</v-toolbar>
-            <v-card-text>
-              <div class="text-h2 pa-12">Hello world!</div>
-            </v-card-text>
-            <v-card-actions class="justify-end">
-              <v-btn
-                text
-                @click="dialog.value = false"
-              >Close</v-btn>
-            </v-card-actions>
-          </v-card>
-        </template>
-      </v-dialog>
-
-      <v-btn icon>
-        <v-icon>mdi-dots-vertical</v-icon>
-      </v-btn>
     </v-container>
   </v-app-bar>
 </template>
@@ -78,11 +76,11 @@ export default {
   name: 'AppBar',
   data: () => ({
     drawer: null,
-    loading: true,
+    loading: false,
     value: undefined
   }),
   watch: {
-    loading (val) {
+    loading(val) {
       // 加载进度条
       if (!val) return
       setTimeout(() => (this.loading = false), 3000)
@@ -111,6 +109,7 @@ export default {
     display: none;
   }
 }
+
 @media (min-width: 960px) {
   .menu-btn {
     display: none;

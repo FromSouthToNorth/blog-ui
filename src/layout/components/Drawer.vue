@@ -1,10 +1,18 @@
 <template>
   <v-navigation-drawer
     :value="drawer"
-    absolute
     temporary
     app
   >
+    <v-text-field
+      flat
+      hide-details
+      solo
+      label="搜索 按回车"
+      prepend-inner-icon="mdi-magnify"
+      :value="value"
+      class="text--field--show"
+    ></v-text-field>
     <left-toolbar />
   </v-navigation-drawer>
 </template>
@@ -21,8 +29,12 @@ export default {
       drawer: state => state.settings.drawer
     })
   },
+  data() {
+    return {
+      value: undefined
+    }
+  },
   created() {
-    console.log(this.drawer)
   }
 }
 </script>
