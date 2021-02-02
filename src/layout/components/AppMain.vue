@@ -19,9 +19,10 @@
 import TagCloud from '@/components/Echarts/TagCloud'
 import RightToolbar from '@/components/RightToolbar/RightToolbar'
 import LeftToolbar from '@/components/LeftToolbar/LeftToolbar'
+import Footer from '@/layout/components/Footer'
 
 export default {
-  components: { LeftToolbar, RightToolbar, TagCloud },
+  components: { LeftToolbar, RightToolbar, TagCloud, Footer },
   computed: {
     cachedViews() {
       return this.$store.state.tagsView.cachedViews

@@ -3,7 +3,6 @@
     <v-row>
       <v-col sm="6" xm="6" v-for="item in 6" :key="item">
         <v-card
-          style="margin-bottom: 20px"
           class="mx-auto"
         >
           <v-img
