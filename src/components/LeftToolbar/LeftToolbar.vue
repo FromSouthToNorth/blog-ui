@@ -4,6 +4,7 @@
       class="mx-auto"
     >
       <v-img
+        lazy-src="https://picsum.photos/id/11/10/6"
         src="https://images.unsplash.com/photo-1603993097397-89c963e325c7?ixid=MXwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwyNnx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
         height="200px"
       ></v-img>
