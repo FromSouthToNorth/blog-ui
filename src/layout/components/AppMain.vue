@@ -4,10 +4,10 @@
       <v-col cols="12" md="2" class="left--navigation--show">
         <left-toolbar />
       </v-col>
-      <v-col cols="12" md="7">
+      <v-col cols="12" md="8">
         <router-view :key="key"/>
       </v-col>
-      <v-col cols="12" md="3">
+      <v-col cols="12" md="2">
         <right-toolbar />
       </v-col>
     </v-row>
