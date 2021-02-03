@@ -2,7 +2,9 @@
   <v-container>
     <v-card>
       <tab />
+      <v-divider></v-divider>
       <blog-info />
+      <v-divider></v-divider>
       <tags />
     </v-card>
   </v-container>
