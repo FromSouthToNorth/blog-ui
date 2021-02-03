@@ -6,12 +6,12 @@
     >
       <v-list-item v-for="(item, i) in items" :key="i">
         <v-list-item-icon>
-          <v-icon v-text="item.icon"></v-icon>
+          <v-icon v-text="item.icon" :color="item.color"></v-icon>
         </v-list-item-icon>
         <v-list-item-content>
           <v-list-item-title>
             <v-badge
-              color="cyan"
+              :color="item.color"
               :content="item.subtitle"
             >
               {{ item.text }}
@@ -29,10 +29,10 @@ export default {
     return {
       hover: false,
       items: [
-        {text: '文章数目', icon: 'mdi-shield-star-outline', subtitle: 12},
-        {text: '评论数目', icon: 'mdi-comment-processing', subtitle: 1},
-        {text: '运行天数', icon: 'mdi-vector-union', subtitle: 7},
-        {text: '最后活动', icon: 'mdi-radioactive', subtitle: '2020-02-01'}
+        {text: '文章数目', icon: 'mdi-shield-star-outline', color: 'light-blue', subtitle: 12},
+        {text: '评论数目', icon: 'mdi-comment-processing-outline', color: 'cyan', subtitle: 1},
+        {text: '运行天数', icon: 'mdi-vector-union', color: 'green', subtitle: 7},
+        {text: '最后活动', icon: 'mdi-atom', color: 'pink lighten-1', subtitle: '2020-02-01'}
       ]
     }
   }

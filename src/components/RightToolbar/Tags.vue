@@ -2,7 +2,7 @@
   <v-list class="pa-0" shaped>
     <v-subheader>标签云</v-subheader>
     <v-btn
-      color="#b3e5fc"
+      color="light-blue accent-1"
       text
       v-for="(item, i) in tags" :key="i"
     >

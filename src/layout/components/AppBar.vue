@@ -26,7 +26,8 @@
           solo
           label="搜索 按回车"
           prepend-inner-icon="mdi-magnify"
-          style="max-width: 300px;"
+          style="max-width: 320px"
+          class="search-width"
           :value="value"
         ></v-text-field>
 
@@ -79,6 +80,14 @@
           </v-list>
         </v-menu>
       </v-row>
+
+      <v-progress-linear
+        :active="loading"
+        :indeterminate="loading"
+        absolute
+        bottom
+        color="green"
+      ></v-progress-linear>
     </v-container>
   </v-app-bar>
 </template>
@@ -119,6 +128,9 @@ export default {
 @media (max-width: 600px) {
   .logo--show {
     display: none;
+  }
+  .search-width {
+    max-width: 178px!important;
   }
 }
 
