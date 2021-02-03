@@ -1,0 +1,28 @@
+<template>
+  <v-list class="pa-0" shaped>
+    <v-subheader>标签云</v-subheader>
+    <v-btn
+      color="#b3e5fc"
+      text
+      v-for="(item, i) in tags" :key="i"
+    >
+      {{ item }}
+    </v-btn>
+  </v-list>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      tags: [
+        'java', 'html', 'vue', 'JavaScript', 'SQL', 'Spring'
+      ]
+    }
+  }
+}
+</script>
+
+<style scoped>
+
+</style>

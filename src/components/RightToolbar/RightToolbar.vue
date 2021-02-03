@@ -13,7 +13,7 @@
         </v-tab>
         <v-tab-item v-for="n in 3" :key="n">
           <v-container fluid>
-            <v-list three-line>
+            <v-list three-line class="pa-0">
               <template v-for="(item, index) in items">
                 <v-subheader
                   v-if="item.header"
@@ -45,12 +45,18 @@
           </v-container>
         </v-tab-item>
       </v-tabs>
+      <blog-info />
+      <tags />
     </v-card>
   </v-container>
 </template>
 
 <script>
+import BlogInfo from '@/components/RightToolbar/BlogInfo'
+import Tags from '@/components/RightToolbar/Tags'
+
 export default {
+  components: {Tags, BlogInfo },
   data() {
     return {
       header: undefined,
