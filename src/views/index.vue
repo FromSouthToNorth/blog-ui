@@ -1,5 +1,36 @@
 <template>
   <v-container>
+    <v-row sm="12">
+      <v-col>
+        <v-card dark>
+          <v-img
+            :src="require('@/assets/img/juan-rojas-urHVMETO4fw-unsplash.jpg')"
+            class="grey lighten-2"
+            height="200"
+            width="100%"
+          >
+            <v-row
+              class="fill-height pa-3"
+              align="center"
+            >
+              <v-col
+                cols="12"
+                md="7"
+                offset-md="1"
+              >
+                <h1 class="display-3 font-weight-light shades">
+                  旅行的艺术
+                </h1>
+
+                <div class="subheading text-uppercase pl-2 mb-4 shades">
+                  寻找美，一次次的飞行
+                </div>
+              </v-col>
+            </v-row>
+          </v-img>
+        </v-card>
+      </v-col>
+    </v-row>
     <v-row>
       <v-col sm="6" xm="6" v-for="item in 6" :key="item">
         <v-card

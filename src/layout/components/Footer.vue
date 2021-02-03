@@ -11,7 +11,7 @@
     >
       <v-avatar size="16" style="margin-right: 10px">
         <img
-          src="../../assets/img/for-the-record-icon.png"
+          :src="require('@/assets/img/for-the-record-icon.png')"
           alt="John"
         >
       </v-avatar>
@@ -25,6 +25,16 @@
       color="grey lighten-1"
     >
       蜀ICP备20019889号-1
+    </v-btn>
+    <v-btn
+      text
+      x-small
+      href="https://www.ihewro.com/archives/489/"
+      target="_blank"
+      color="grey lighten-1"
+    >
+      <v-icon dense color="blue">mdi-account-search-outline</v-icon>
+      本站模仿 handsome 一款typecho主题
     </v-btn>
   </v-footer>
 </template>
