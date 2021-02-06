@@ -1,4 +1,4 @@
-export function initOption(echarts, monthArray, pushData, flowData, commentData) {
+export function initOption(echarts, legendData, monthArray, pushData, flowData, commentData) {
   return {
     tooltip: {
       trigger: 'axis',
@@ -10,7 +10,7 @@ export function initOption(echarts, monthArray, pushData, flowData, commentData)
       }
     },
     legend: {
-      data: ['发布数', '浏览数', '评论数']
+      data: legendData
     },
     toolbox: {
       feature: {
@@ -37,7 +37,7 @@ export function initOption(echarts, monthArray, pushData, flowData, commentData)
     ],
     series: [
       {
-        name: '发布数',
+        name: legendData[0],
         type: 'line',
         stack: '总量',
         smooth: true,
@@ -61,7 +61,7 @@ export function initOption(echarts, monthArray, pushData, flowData, commentData)
         data: pushData
       },
       {
-        name: '浏览数',
+        name: legendData[1],
         type: 'line',
         stack: '总量',
         smooth: true,
@@ -85,7 +85,7 @@ export function initOption(echarts, monthArray, pushData, flowData, commentData)
         data: flowData
       },
       {
-        name: '评论数',
+        name: legendData[2],
         type: 'line',
         stack: '总量',
         smooth: true,

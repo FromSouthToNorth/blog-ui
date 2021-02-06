@@ -4,7 +4,7 @@
     right
     temporary
     app
-    width="300"
+    width="340"
   >
     <v-card flat>
       <v-row>

@@ -5,12 +5,20 @@
 <script>
 import echarts from 'echarts'
 import resize from '../mixins/resize'
+
 require('echarts/theme/macarons')
+require('@/assets/ECharts/hy')
+
 import { initOption } from './barOptions'
 
 export default {
   mixins: [resize],
   name: "BarECharts",
+  computed: {
+    getTheme() {
+      return this.$vuetify.theme.dark
+    }
+  },
   props: {
     className: {
       type: String,
@@ -23,6 +31,22 @@ export default {
     height: {
       type: String,
       default: '300px'
+    }
+  },
+  watch: {
+    getTheme(val) {
+      let theme
+      if (val) {
+        theme = 'hy'
+      } else {
+        theme = 'macarons'
+      }
+      if (!this.chart) {
+        return
+      }
+      this.chart.dispose()
+      this.chart = null
+      this.initChart(theme)
     }
   },
   data() {
@@ -45,8 +69,8 @@ export default {
     this.chart = null
   },
   methods: {
-    initChart() {
-      this.chart = echarts.init(this.$el, 'macarons')
+    initChart(theme) {
+      this.chart = echarts.init(this.$el, !theme ? 'macarons' : theme)
       this.setOptions()
     },
     setOptions() {

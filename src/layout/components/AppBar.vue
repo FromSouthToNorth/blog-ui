@@ -127,7 +127,7 @@ export default {
     display: none;
   }
   .search-width {
-    max-width: 178px!important;
+    max-width: 160px!important;
   }
 }
 

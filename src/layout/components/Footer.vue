@@ -56,11 +56,3 @@ export default {
   name: 'Footer',
 }
 </script>
-
-<style lang="scss" scoped>
-a {
-  text-decoration: none;
-  font-size: 8px;
-  color: #E0E0E0;
-}
-</style>
