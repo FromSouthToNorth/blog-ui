@@ -1,11 +1,23 @@
 <template>
   <v-container>
-    <v-card>
-      <v-img
-        lazy-src="https://picsum.photos/id/11/10/6"
+    <v-card tile>
+      <v-parallax
+        height="200"
         src="https://images.unsplash.com/photo-1612286350087-116a6b734781?ixid=MXwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw3fHx8ZW58MHx8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-        height="200px"
-      ></v-img>
+      >
+        <template v-slot:placeholder>
+          <v-row
+            class="fill-height ma-0"
+            align="center"
+            justify="center"
+          >
+            <v-progress-circular
+              indeterminate
+              color="grey lighten-5"
+            ></v-progress-circular>
+          </v-row>
+        </template>
+      </v-parallax>
 
       <v-card-title>
         月色真美
@@ -15,62 +27,76 @@
         只要心还跳
       </v-card-subtitle>
 
-      <v-card-actions style="padding: 0">
+      <v-card-actions>
         <v-btn
           icon
-          @click="show = !show"
+          @click="reveal = true"
         >
-          <v-icon>{{ show ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
+          <v-icon>mdi-chevron-up</v-icon>
         </v-btn>
       </v-card-actions>
 
       <v-expand-transition>
-        <div v-show="show">
-          <v-divider></v-divider>
-
-          <v-card-text>
-            晚上好注意早点休息 <v-icon>mdi-moon-waning-crescent</v-icon>
-            <v-progress-linear rounded value="95"></v-progress-linear>
+        <v-card
+          tile
+          v-if="reveal"
+          class="transition-fast-in-fast-out v-card--reveal"
+          style="height: 100%;"
+        >
+          <v-parallax
+            height="200"
+            src="https://images.unsplash.com/photo-1612286350087-116a6b734781?ixid=MXwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw3fHx8ZW58MHx8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+          >
+            <template v-slot:placeholder>
+              <v-row
+                class="fill-height ma-0"
+                align="center"
+                justify="center"
+              >
+                <v-progress-circular
+                  indeterminate
+                  color="grey lighten-5"
+                ></v-progress-circular>
+              </v-row>
+            </template>
+          </v-parallax>
+          <v-card-text class="pb-0">
+            <p class="body-2 text--primary">
+              上午好迎接美好的一天！<v-icon>mdi-white-balance-sunny</v-icon>
+            </p>
+            <v-progress-linear
+              :value="skill"
+              height="25"
+            >
+              <template>
+                <strong>{{ Math.ceil(skill) }}%</strong>
+              </template>
+            </v-progress-linear>
           </v-card-text>
-        </div>
+          <v-card-actions class="pt-0">
+            <v-btn
+              icon
+              @click="reveal = false"
+            >
+              <v-icon>mdi-chevron-down</v-icon>
+            </v-btn>
+          </v-card-actions>
+        </v-card>
       </v-expand-transition>
       <v-divider></v-divider>
-      <v-list dense>
-        <v-subheader>导航</v-subheader>
-        <v-list-item-group
-          v-model="selectedItem"
-          color="primary"
-        >
-          <v-list-item
-            v-for="(item, i) in items"
-            :key="i"
-          >
-            <v-list-item-icon>
-              <v-icon v-text="item.icon"></v-icon>
-            </v-list-item-icon>
-            <v-list-item-content>
-              <v-list-item-title v-text="item.text"></v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-        </v-list-item-group>
-      </v-list>
+      <Menu />
     </v-card>
   </v-container>
 </template>
 
 <script>
-export default {
-  data: () => ({
-    show: false,
-    selectedItem: 1,
-    items: [
-      { text: '关于我', icon: 'mdi-account' },
-      { text: '首页', icon: 'mdi-home-group' },
-      { text: '分类', icon: 'mdi-format-list-bulleted-type' },
-      { text: '标签', icon: 'mdi-tag-heart' },
-      { text: '留言板', icon: 'mdi-comment-processing' },
+import Menu from './Menu'
 
-    ],
+export default {
+  components: { Menu },
+  data: () => ({
+    reveal: false,
+    skill: 25,
   }),
 }
 </script>
