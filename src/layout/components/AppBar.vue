@@ -63,22 +63,9 @@
           </template>
         </v-dialog>
 
-        <v-menu open-on-hover transition="slide-x-transition" offset-y>
-          <template v-slot:activator="{ on, attrs }">
-            <v-btn v-bind="attrs" v-on="on" icon>
-              <v-icon>mdi-dots-vertical</v-icon>
-            </v-btn>
-          </template>
-          <v-list>
-            <v-list-item
-              v-for="n in 5"
-              :key="n"
-              link
-            >
-              <v-list-item-title v-text="'Item ' + n"></v-list-item-title>
-            </v-list-item>
-          </v-list>
-        </v-menu>
+        <v-btn icon @click="setEChartsDrawer">
+          <v-icon>mdi-chart-bell-curve</v-icon>
+        </v-btn>
       </v-row>
 
       <v-progress-linear
@@ -97,6 +84,7 @@ export default {
   name: 'AppBar',
   data: () => ({
     drawer: null,
+    eDrawer: null,
     loading: false,
     value: undefined
   }),
@@ -119,6 +107,15 @@ export default {
         key: 'drawer',
         value: this.drawer
       })
+    },
+    /** 设置 ECharts 抽箱 */
+    setEChartsDrawer() {
+      this.eDrawer = !this.eDrawer
+      this.$store.dispatch('settings/eDrawerSetting', {
+        key: 'eChartsDrawer',
+        value: this.eDrawer
+      })
+
     }
   }
 }

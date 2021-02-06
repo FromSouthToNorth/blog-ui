@@ -6,11 +6,11 @@
 import echarts from 'echarts'
 import resize from '../mixins/resize'
 require('echarts/theme/macarons')
-import { initOption } from './lineOption'
+import { initOption } from './barOptions'
 
 export default {
   mixins: [resize],
-  name: 'LineEcharts',
+  name: "BarECharts",
   props: {
     className: {
       type: String,
@@ -28,8 +28,8 @@ export default {
   data() {
     return {
       chart: null,
-      monthArray: ['2020-12', '2021-01', '2021-02'],
-      data: [1, 3, 6],
+      xAxisData: ['生活百态', '闲鱼心事', '学习笔记'],
+      seriesData: [12, 6, 17]
     }
   },
   mounted() {
@@ -50,8 +50,12 @@ export default {
       this.setOptions()
     },
     setOptions() {
-      this.chart.setOption(initOption(echarts, this.monthArray, this.data))
+      this.chart.setOption(initOption(this.xAxisData, this.seriesData))
     }
   },
 }
 </script>
+
+<style scoped>
+
+</style>

@@ -1,6 +1,7 @@
 <template>
   <v-app id="inspire">
-    <Drawer />  <!-- 抽箱导航 -->
+    <Drawer />  <!-- 导航抽箱 -->
+    <EChartsDrawer /> <!-- 图表抽箱 -->
     <AppBar />  <!-- 头部导航 -->
     <v-main>
       <app-main />  <!-- 主体 -->
@@ -15,10 +16,11 @@ import AppBar from './components/AppBar'
 import Footer from './components/Footer'
 import Drawer from './components/Drawer'
 import Cta from './components/Cta'
+import EChartsDrawer from './components/EChartsDrawer'
 
 export default {
   name: 'Layout',
-  components: {Cta, AppBar, AppMain, Footer, Drawer },
+  components: {EChartsDrawer, Cta, AppBar, AppMain, Footer, Drawer },
 }
 </script>
 

@@ -6,7 +6,7 @@
           <v-img
             :src="require('@/assets/img/juan-rojas-urHVMETO4fw-unsplash.jpg')"
             class="grey lighten-2"
-            :height="!reveal ? 200 : 342"
+            :height="200"
             width="100%"
           >
             <v-row
@@ -54,7 +54,6 @@
               class="transition-fast-in-fast-out v-card--reveal"
               style="height: 100%;"
             >
-              <line-echarts :height="reveal ? '300px' : ''" />
               <v-card-actions class="pt-0">
                 <v-btn
                   text
@@ -126,8 +125,8 @@
 </template>
 
 <script>
-import LineEcharts from '@/components/Echarts/LineEcharts/LineEcharts'
-import PieEcharts from '@/components/Echarts/PieEcharts/PieEcharts'
+import LineEcharts from '@/components/Echarts/LineECharts/LineECharts'
+import PieEcharts from '@/components/Echarts/PieECharts/PieECharts'
 export default {
   name: 'Index',
   components: { PieEcharts, LineEcharts },

@@ -1,5 +1,12 @@
-export function initOption (data) {
+export function initOption(data) {
   return {
+    grid: {
+      top: 10,
+      left: '2%',
+      right: '2%',
+      bottom: '3%',
+      containLabel: true
+    },
     tooltip: {
       trigger: 'item'
     },
@@ -9,7 +16,7 @@ export function initOption (data) {
     },
     series: [
       {
-        name: '访问来源',
+        name: '标签数量',
         type: 'pie',
         radius: ['40%', '70%'],
         avoidLabelOverlap: false,

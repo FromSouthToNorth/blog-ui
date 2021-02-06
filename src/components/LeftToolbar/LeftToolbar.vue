@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-card tile>
+    <v-card>
       <v-parallax
         height="200"
         src="https://images.unsplash.com/photo-1612286350087-116a6b734781?ixid=MXwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw3fHx8ZW58MHx8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"

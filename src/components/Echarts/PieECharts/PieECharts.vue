@@ -7,7 +7,7 @@ import echarts from 'echarts'
 import resize from '../mixins/resize'
 require('echarts/theme/macarons')
 
-import { initOption } from './pieOption'
+import { initOption } from './pieOptions'
 
 export default {
   name: 'PieEcharts',
