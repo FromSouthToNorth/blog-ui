@@ -63,7 +63,7 @@
           </template>
         </v-dialog>
 
-        <v-menu transition="slide-x-transition" offset-y>
+        <v-menu open-on-hover transition="slide-x-transition" offset-y>
           <template v-slot:activator="{ on, attrs }">
             <v-btn v-bind="attrs" v-on="on" icon>
               <v-icon>mdi-dots-vertical</v-icon>

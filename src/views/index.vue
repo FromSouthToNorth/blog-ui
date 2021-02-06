@@ -6,7 +6,7 @@
           <v-img
             :src="require('@/assets/img/juan-rojas-urHVMETO4fw-unsplash.jpg')"
             class="grey lighten-2"
-            height="200"
+            :height="!reveal ? 200 : 342"
             width="100%"
           >
             <v-row
@@ -54,12 +54,7 @@
               class="transition-fast-in-fast-out v-card--reveal"
               style="height: 100%;"
             >
-              <v-card-text class="pb-0">
-                <p class="display-1 text--primary">
-                  Origin
-                </p>
-                <p>late 16th century (as a noun denoting a place where alms were distributed): from medieval Latin eleemosynarius, from late Latin eleemosyna ‘alms’, from Greek eleēmosunē ‘compassion’ </p>
-              </v-card-text>
+              <line-echarts :height="reveal ? '300px' : ''" />
               <v-card-actions class="pt-0">
                 <v-btn
                   text
@@ -131,10 +126,14 @@
 </template>
 
 <script>
+import LineEcharts from '@/components/Echarts/LineEcharts/LineEcharts'
+import PieEcharts from '@/components/Echarts/PieEcharts/PieEcharts'
 export default {
   name: 'Index',
+  components: { PieEcharts, LineEcharts },
   data: () => ({
-    reveal: false
+    reveal: false,
+    height: null,
   })
 }
 </script>
