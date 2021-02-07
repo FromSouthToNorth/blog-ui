@@ -3,6 +3,7 @@
     :value="drawer"
     temporary
     app
+    width="268"
   >
     <left-toolbar />
   </v-navigation-drawer>

@@ -4,6 +4,10 @@ import store from './store'
 import vuetify from '@/plugins/vuetify'
 import router from './router'
 
+import { parseTime } from '@/utils/hy'
+
+Vue.prototype.parseTime = parseTime
+
 new Vue({
   el: '#app',
   router,

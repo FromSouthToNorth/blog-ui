@@ -1,5 +1,9 @@
 export function initOption(xAxisData, seriesData) {
   return {
+    title: {
+      top: '10px',
+      text: '分类统计'
+    },
     tooltip: {
       trigger: 'axis',
       axisPointer: { // 坐标轴指示器，坐标轴触发有效
@@ -7,7 +11,7 @@ export function initOption(xAxisData, seriesData) {
       }
     },
     grid: {
-      top: 10,
+      top: 60,
       left: '2%',
       right: '2%',
       bottom: '3%',

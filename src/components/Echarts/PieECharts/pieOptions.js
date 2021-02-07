@@ -1,5 +1,8 @@
 export function initOption(data) {
   return {
+    title: {
+      text: '标签统计'
+    },
     grid: {
       top: 10,
       left: '2%',
@@ -11,7 +14,7 @@ export function initOption(data) {
       trigger: 'item'
     },
     legend: {
-      top: '5%',
+      top: '8%',
       left: 'center'
     },
     series: [

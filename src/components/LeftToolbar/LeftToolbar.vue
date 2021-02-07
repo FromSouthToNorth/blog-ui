@@ -62,14 +62,15 @@
           </v-parallax>
           <v-card-text class="pb-0">
             <p class="body-2 text--primary">
-              上午好迎接美好的一天！<v-icon>mdi-white-balance-sunny</v-icon>
+              {{ blessing.text }}
+              <v-icon :color="blessing.color" v-text="blessing.icon"></v-icon>
             </p>
             <v-progress-linear
-              :value="skill"
+              :value="residueData"
               height="25"
             >
               <template>
-                <strong>{{ Math.ceil(skill) }}%</strong>
+                <strong>{{ Math.ceil(residueData) }}%</strong>
               </template>
             </v-progress-linear>
           </v-card-text>
@@ -97,7 +98,42 @@ export default {
   data: () => ({
     reveal: false,
     skill: 25,
+    day: 24,
+    residueData: null,
+    blessing: {
+      text: undefined,
+      icon: undefined,
+      color: undefined
+    }
   }),
+  created() {
+    this.theRestOfTime()
+  },
+  methods: {
+    theRestOfTime() {
+      var date = new Date()
+      let residue = this.day - date.getHours()
+      this.residueData = (residue * 10) / this.day
+      console.log(this.residueData)
+      if (this.residueData <= 5) {
+        this.blessing.text = '早上好~迎接美好的一天！'
+        this.blessing.icon = 'mdi-emoticon-kiss-outline'
+        this.blessing.color = 'pink'
+      } else if (this.residueData > 5 && this.residueData < 7) {
+        this.blessing.text = '今天你那阳光明媚吗？'
+        this.blessing.icon = 'mdi-emoticon-lol-outline'
+        this.blessing.color = 'orange'
+      } else if (this.residueData >= 7 && this.residueData < 10) {
+        this.blessing.text = '下午不打个盹？'
+        this.blessing.icon = 'mdi-emoticon-wink-outline'
+        this.blessing.color = 'cyan'
+      } else if (this.residueData >= 10) {
+        this.blessing.text = '晚上好，天色不早啦~早点休息'
+        this.blessing.icon = 'mdi-weather-night'
+        this.blessing.color = 'blue-grey'
+      }
+    }
+  }
 }
 </script>
 
