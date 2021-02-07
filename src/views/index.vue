@@ -4,7 +4,7 @@
       <v-col>
         <v-card tile>
           <v-img
-            :src="require('@/assets/img/juan-rojas-urHVMETO4fw-unsplash.jpg')"
+            :src="require('@/assets/images/juan-rojas-urHVMETO4fw-unsplash.jpg')"
             class="grey lighten-2"
             :height="200"
             width="100%"

@@ -13,7 +13,7 @@
       >
         <v-avatar size="16" style="margin-right: 10px">
           <img
-            :src="require('@/assets/img/for-the-record-icon.png')"
+            :src="require('@/assets/images/for-the-record-icon.png')"
             alt="John"
           >
         </v-avatar>

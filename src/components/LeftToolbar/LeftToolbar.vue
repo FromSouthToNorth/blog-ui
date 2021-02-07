@@ -1,9 +1,9 @@
 <template>
   <v-container>
     <v-card>
-      <v-parallax
+      <v-img
         height="200"
-        src="https://images.unsplash.com/photo-1612286350087-116a6b734781?ixid=MXwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw3fHx8ZW58MHx8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+        :src="imgPart"
       >
         <template v-slot:placeholder>
           <v-row
@@ -17,7 +17,7 @@
             ></v-progress-circular>
           </v-row>
         </template>
-      </v-parallax>
+      </v-img>
 
       <v-card-title>
         月色真美
@@ -43,9 +43,9 @@
           class="transition-fast-in-fast-out v-card--reveal"
           style="height: 100%;"
         >
-          <v-parallax
+          <v-img
             height="200"
-            src="https://images.unsplash.com/photo-1612286350087-116a6b734781?ixid=MXwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw3fHx8ZW58MHx8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+            :src="imgClose"
           >
             <template v-slot:placeholder>
               <v-row
@@ -59,7 +59,7 @@
                 ></v-progress-circular>
               </v-row>
             </template>
-          </v-parallax>
+          </v-img>
           <v-card-text class="pb-0">
             <p class="body-2 text--primary">
               {{ blessing.text }}
@@ -92,6 +92,8 @@
 
 <script>
 import Menu from './Menu'
+import close from '@/assets/images/austin-ban-_cQDpF6n3t0-unsplash.jpg'
+import part from '@/assets/images/austin-ban-IS6RwpuEJpY-unsplash.jpg'
 
 export default {
   components: { Menu },
@@ -103,8 +105,10 @@ export default {
     blessing: {
       text: undefined,
       icon: undefined,
-      color: undefined
-    }
+      color: undefined,
+    },
+    imgClose: close,
+    imgPart: part
   }),
   created() {
     this.theRestOfTime()
@@ -113,21 +117,20 @@ export default {
     theRestOfTime() {
       var date = new Date()
       let residue = this.day - date.getHours()
-      this.residueData = (residue * 10) / this.day
-      console.log(this.residueData)
-      if (this.residueData <= 5) {
+      this.residueData = 100 - ((residue / this.day) * 100)
+      if (date.getHours() >= 6 && date.getHours() <= 11) {
         this.blessing.text = '早上好~迎接美好的一天！'
         this.blessing.icon = 'mdi-emoticon-kiss-outline'
         this.blessing.color = 'pink'
-      } else if (this.residueData > 5 && this.residueData < 7) {
+      } else if (date.getHours() >= 12 && date.getHours() <= 14) {
         this.blessing.text = '今天你那阳光明媚吗？'
         this.blessing.icon = 'mdi-emoticon-lol-outline'
         this.blessing.color = 'orange'
-      } else if (this.residueData >= 7 && this.residueData < 10) {
+      } else if (date.getHours() >= 15 && date.getHours() <= 19) {
         this.blessing.text = '下午不打个盹？'
         this.blessing.icon = 'mdi-emoticon-wink-outline'
         this.blessing.color = 'cyan'
-      } else if (this.residueData >= 10) {
+      } else if (date.getHours() >= 20) {
         this.blessing.text = '晚上好，天色不早啦~早点休息'
         this.blessing.icon = 'mdi-weather-night'
         this.blessing.color = 'blue-grey'

@@ -7,7 +7,7 @@ import echarts from 'echarts'
 import resize from '../mixins/resize'
 
 require('echarts/theme/macarons')
-require('@/assets/ECharts/hy')
+require('@/assets/ECharts/walden')
 
 import { initOption } from './barOptions'
 
@@ -37,7 +37,7 @@ export default {
     getTheme(val) {
       let theme
       if (val) {
-        theme = 'hy'
+        theme = 'walden'
       } else {
         theme = 'macarons'
       }
