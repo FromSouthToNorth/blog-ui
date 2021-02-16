@@ -63,9 +63,19 @@
           </template>
         </v-dialog>
 
-        <v-btn icon @click="setEChartsDrawer">
-          <v-icon>mdi-chart-bell-curve</v-icon>
-        </v-btn>
+        <v-tooltip bottom>
+          <template v-slot:activator="{ on, attrs }">
+            <v-btn
+              icon
+              @click="setEChartsDrawer"
+              v-bind="attrs"
+              v-on="on"
+            >
+              <v-icon>mdi-chart-bell-curve</v-icon>
+            </v-btn>
+          </template>
+          <span>统计图表</span>
+        </v-tooltip>
       </v-row>
 
       <v-progress-linear
@@ -73,26 +83,31 @@
         :indeterminate="loading"
         absolute
         bottom
-        color="green"
       ></v-progress-linear>
     </v-container>
   </v-app-bar>
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
   name: 'AppBar',
+  computed: {
+    ...mapState({
+      loading: state => state.settings.loading
+    })
+  },
   data: () => ({
     drawer: null,
     eDrawer: null,
-    loading: false,
     value: undefined
   }),
   watch: {
     loading(val) {
       // 加载进度条
       if (!val) return
-      setTimeout(() => (this.loading = false), 3000)
+      setTimeout(() => (this.$store.dispatch('settings/loadingSetting', false)), 3000)
     },
   },
   methods: {

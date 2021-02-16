@@ -9,6 +9,7 @@
         <v-list-item
           v-for="(item, i) in items"
           :key="i"
+          @click="menuClick(item.path)"
         >
           <v-list-item-icon>
             <v-icon v-text="item.icon"></v-icon>
@@ -32,11 +33,12 @@ export default {
   name: 'Menu',
   data() {
     return {
-      selectedItem: 1,
+      selectedItem: 0,
       items: [
-        { text: '首页', icon: 'mdi-home-group' },
-        { text: '关于我', icon: 'mdi-account' },
-        { text: '留言板', icon: 'mdi-comment-processing' }
+        { text: '首页', path: 'index', icon: 'mdi-home-outline ' },
+        { text: '关于我', path: 'aboutMe', icon: 'mdi-account-circle-outline' },
+        { text: '留言板', path: 'message', icon: 'mdi-comment-processing-outline' },
+        { text: '归档', path: 'flie', icon: 'mdi-ballot-recount-outline' },
       ],
       labels: ['SU', 'MO', 'TU', 'WED', 'TH', 'FR', 'SA'],
       time: 0,
@@ -67,6 +69,13 @@ export default {
           ],
         }
       ],
+    }
+  },
+  methods: {
+    menuClick(path) {
+      this.$router.push({
+        path: path
+      })
     }
   }
 }

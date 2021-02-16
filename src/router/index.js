@@ -19,6 +19,16 @@ export const constantRoutes = [
     ]
   },
   {
+    path: '/404',
+    component: (resolve) => require(['@/views/error/404'], resolve),
+    hidden: true
+  },
+  {
+    path: '/401',
+    component: (resolve) => require(['@/views/error/401'], resolve),
+    hidden: true
+  },
+  {
     path: '',
     component: Layout,
     redirect: 'index',
@@ -27,7 +37,25 @@ export const constantRoutes = [
         path: 'index',
         component: (resolve) => require(['@/views/index'], resolve),
         name: '首页',
-        meta: { title: '首页', icon: 'dashboard', noCache: true, affix: true }
+        meta: { title: '首页', icon: 'mdi-home-group'}
+      },
+      {
+        path: 'aboutMe',
+        component: (resolve) => require(['@/views/aboutMe/index'], resolve),
+        name: '关于我',
+        meta: { title: '关于我', icon: 'mdi-account'}
+      },
+      {
+        path: 'message',
+        component: (resolve) => require(['@/views/message/index'], resolve),
+        name: '留言板',
+        meta: { title: '留言板', icon: 'mdi-comment-processing'}
+      },
+      {
+        path: 'flie',
+        component: (resolve) => require(['@/views/file/index'], resolve),
+        name: '归档',
+        meta: { title: '归档', icon: 'mdi-ballot-recount-outline'}
       }
     ]
   }

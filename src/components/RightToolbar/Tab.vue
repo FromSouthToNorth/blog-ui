@@ -1,13 +1,7 @@
 <template>
-  <v-tabs @change="tabsChange">
-    <v-tab>
-      <v-icon>mdi-hand-heart</v-icon>
-    </v-tab>
-    <v-tab>
-      <v-icon>mdi-comment-outline</v-icon>
-    </v-tab>
-    <v-tab>
-      <v-icon>mdi-gift-outline</v-icon>
+  <v-tabs>
+    <v-tab v-for="(item, i) in headers">
+      <v-icon v-text="item.icon"></v-icon>
     </v-tab>
     <v-tab-item v-for="n in 3" :key="n">
       <v-container fluid>
@@ -51,7 +45,9 @@ export default {
     return {
       header: undefined,
       headers:[
-        '热门文章','最新评论','随机文章'
+        { name: '热门文章', icon: 'mdi-hand-heart' },
+        { name: '最新评论', icon: 'mdi-comment-outline' },
+        { name: '随机文章', icon: 'mdi-gift-outline' }
       ],
       items: [
         { header: 'Today' },

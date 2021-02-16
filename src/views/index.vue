@@ -133,7 +133,10 @@ export default {
   data: () => ({
     reveal: false,
     height: null,
-  })
+  }),
+  created() {
+    this.$store.dispatch('settings/loadingSetting', true)
+  }
 }
 </script>
 

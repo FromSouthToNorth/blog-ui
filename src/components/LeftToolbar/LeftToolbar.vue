@@ -118,11 +118,11 @@ export default {
       var date = new Date()
       let residue = this.day - date.getHours()
       this.residueData = 100 - ((residue / this.day) * 100)
-      if (date.getHours() >= 6 && date.getHours() <= 11) {
+      if (date.getHours() >= 6 && date.getHours() < 11) {
         this.blessing.text = '早上好~迎接美好的一天！'
         this.blessing.icon = 'mdi-emoticon-kiss-outline'
         this.blessing.color = 'pink'
-      } else if (date.getHours() >= 12 && date.getHours() <= 14) {
+      } else if (date.getHours() >= 11 && date.getHours() <= 14) {
         this.blessing.text = '今天你那阳光明媚吗？'
         this.blessing.icon = 'mdi-emoticon-lol-outline'
         this.blessing.color = 'orange'

@@ -1,6 +1,7 @@
 const state = {
   drawer: null,
-  eChartsDrawer: null
+  eChartsDrawer: null,
+  loading: false
 }
 
 const mutations = {
@@ -9,6 +10,9 @@ const mutations = {
   },
   SET_ECharts_DRAWER: (state, eChartsDrawer) => {
     state.eChartsDrawer = eChartsDrawer
+  },
+  SET_LOADING: (state, loading) => {
+    state.loading = loading
   }
 }
 
@@ -18,6 +22,9 @@ const actions = {
   },
   eDrawerSetting({ commit }, eChartsDrawer) {
     commit('SET_ECharts_DRAWER', eChartsDrawer)
+  },
+  loadingSetting({ commit }, loading) {
+    commit('SET_LOADING', loading)
   }
 }
 
