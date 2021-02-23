@@ -6,8 +6,17 @@
       <v-row align="center" class="mx-auto py-0">
         <v-toolbar-title class="logo--show">Blog</v-toolbar-title>
 
-        <v-btn icon @click="theme">
-          <v-icon>{{ $vuetify.theme.dark ? 'mdi-white-balance-sunny' : 'mdi-weather-night' }}</v-icon>
+        <v-btn
+          fab
+          small
+          elevation="1"
+          :color="$vuetify.theme.dark ? 'deep-purple darken-4' : 'grey darken-3'"
+          class="ml-2"
+          @click="theme">
+          <v-icon
+          :color="$vuetify.theme.dark ? 'orange' : 'amber accent-3'">
+            {{ $vuetify.theme.dark ? 'mdi-fire' : 'mdi-weather-night' }}
+          </v-icon>
         </v-btn>
 
         <v-progress-linear
