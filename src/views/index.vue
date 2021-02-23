@@ -26,6 +26,7 @@
                   寻找美，一次次的飞行
                 </div>
                 <v-btn
+                  elevation="8"
                   color="primary"
                   depressed
                   @click="reveal = true"
@@ -54,14 +55,16 @@
               class="transition-fast-in-fast-out v-card--reveal"
               style="height: 100%;"
             >
-              <v-card-actions class="pt-0">
+              <v-card-actions>
                 <v-btn
-                  text
-                  color="teal accent-4"
+                  elevation="8"
+                  style="z-index: 2"
                   @click="reveal = false"
+                  icon
                 >
-                  Close
+                  <v-icon>mdi-close</v-icon>
                 </v-btn>
+                <Map />
               </v-card-actions>
             </v-card>
           </v-expand-transition>
@@ -127,9 +130,10 @@
 <script>
 import LineEcharts from '@/components/Echarts/LineECharts/LineECharts'
 import PieEcharts from '@/components/Echarts/PieECharts/PieECharts'
+import Map from '@/components/Map'
 export default {
   name: 'Index',
-  components: { PieEcharts, LineEcharts },
+  components: { Map, PieEcharts, LineEcharts },
   data: () => ({
     reveal: false,
     height: null,
